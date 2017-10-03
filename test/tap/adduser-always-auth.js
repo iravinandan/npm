@@ -9,9 +9,9 @@ var common = require('../common-tap.js')
 var opts = {cwd: __dirname}
 var outfile = path.resolve(__dirname, '_npmrc')
 var responses = {
-  'Username': 'u\n',
-  'Password': 'p\n',
-  'Email': 'u@p.me\n'
+  'npm username': 'u\n',
+  'npm password': 'p\n',
+  'email (this IS public)': 'u@p.me\n'
 }
 
 function verifyStdout (runner, successMessage, t) {
@@ -21,7 +21,7 @@ function verifyStdout (runner, successMessage, t) {
       remaining--
 
       var label = chunk.toString('utf8').split(':')[0]
-      runner.stdin.write(responses[label])
+      if (responses[label]) runner.stdin.write(responses[label])
 
       if (remaining === 0) runner.stdin.end()
     } else {
