@@ -788,7 +788,7 @@ A proxy to use for outgoing http requests. If the `HTTP_PROXY` or
 `http_proxy` environment variables are set, proxy settings will be
 honored by the underlying `request` library.
 
-### readonly
+### read-only
 
 * Default: false
 * Type: Boolean
